@@ -5,8 +5,8 @@ const database = new Client(
     ? {
         user: "kamila",
         host: "localhost",
-        database: "",
-        password: "",
+        database: "tests_products",
+        password: "1234",
         port: 5432,
       }
     : {
