@@ -11,7 +11,7 @@ app.use(express.json());
 app.use("/categories", categoriesRouter);
 app.use("/products", productsRouter);
 
-export default app.listen(process.env.PORT || 3333, () => {
-  console.log(`Server on port ${process.env.PORT || 3333}`);
+export default app.listen(3333, () => {
+  console.log("Serve Running");
   startDatabase();
 });

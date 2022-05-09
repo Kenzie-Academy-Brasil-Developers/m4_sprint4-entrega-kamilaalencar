@@ -42,7 +42,7 @@ export default class ProductsController {
 
     try {
       const product = await updateProductService({
-        product_id: id,
+        id,
         name,
         price,
         category_id,
@@ -61,17 +61,19 @@ export default class ProductsController {
     try {
       const product = await deleteProductsService({ id });
 
-      return response.status(200).json(product);
+      return response
+        .status(200)
+        .json({ message: "Product deleted", product: product });
     } catch (err) {
       return response.status(400).json({ message: err.message });
     }
   }
 
   async productCategory(request, response) {
-    const { id } = request.params;
+    const { category_id } = request.params;
 
     try {
-      const product = await listProductsCategoryService({ id });
+      const product = await listProductsCategoryService({ category_id });
       return response.status(200).json(product);
     } catch (err) {
       return response.status(400).json({ message: err.message });
